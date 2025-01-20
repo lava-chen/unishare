@@ -1,9 +1,26 @@
-import Image from "next/image";
+import { getInstitutes } from "@/db/queries";
 
-export default function Home() {
+import { StickyWrapper } from "@/components/sticky-wrapper";
+import { FeedWrapper } from "@/components/feed-wrapper";
+import { Button } from "@/components/ui/button";
+
+import PostHead from "./post-head";
+import PostBody from "./post-body";
+import NewPost from "@/components/new-post";
+
+export default async function Home() {
+  const institutes = await getInstitutes();
   return (
-    <div>
-      <h1 className="text-3xl font-semibold">你好啊啊</h1>
+    <div className="flex flex-row-reverse gap-[48px] px-6">
+      <StickyWrapper>
+        <NewPost />
+      </StickyWrapper>
+      <FeedWrapper>
+        <div className="flex flex-col gap-[24px]">
+          <PostHead institute="水文院" major="水文工程" />
+          <PostBody></PostBody>
+        </div>
+      </FeedWrapper>
     </div>
   );
 }
