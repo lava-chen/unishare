@@ -13,12 +13,12 @@ export default async function Home() {
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWrapper>
-        <NewPost />
+        <></>
       </StickyWrapper>
       <FeedWrapper>
         <div className="flex flex-col gap-[24px]">
-          <PostHead institute="水文院" major="水文工程" />
-          <PostBody></PostBody>
+          <PostHead />
+          <PostBody />
         </div>
       </FeedWrapper>
     </div>

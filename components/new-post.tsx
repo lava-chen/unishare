@@ -19,11 +19,13 @@ import { useState } from "react";
 
 import createNewPost from "@/actions/new-post";
 
-const NewPost = () => {
+type Props = {
+  major: string;
+};
+
+const NewPost = ({ major }: Props) => {
   const [content, setContent] = useState<string>("");
   const [course, setCourse] = useState<string>("");
-
-  const [major, setMajor] = useState<string>("水文工程");
 
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
